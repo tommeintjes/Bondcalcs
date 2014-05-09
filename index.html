@@ -12,28 +12,28 @@
 <script src="extrapay.js"></script>
 <script src="affordability.js"></script>
 <script src="phonegap.js"></script>
-
+<icon src="icon.png" />
 </head>
 <body>
 <div data-role="page" id="page">
   <div data-role="header">
-    <h1>Real Estate Calculators</h1>
+    <h1>Bond Calculators</h1>
   </div>
   <div data-role="content">
     <ul data-role="listview">
       <li><a href="#1page">Transfer / Bond Costs</a></li>
-      <li><a href="#2page">Bond Repayment</a></li>
+      <li><a href="#2page">Bond Repayments</a></li>
       <li><a href="#3page">Affordability</a></li>
-      <li><a href="#4page">Additional Payment</a></li>
+      <li><a href="#4page">Additional Payments</a></li>
     </ul>
   </div>
-<div data-role="footer">
+  <div data-role="footer">
     <h4>by Eezi Software</h4>
   </div>
 </div>
 <div data-role="page" id="1page">
   <div data-role="header"> <a href="#page" data-role="button">Back</a>
-    <h1>Transfer & Bond Cost Calculator</h1>
+    <h1>Transfer & Bond Costs</h1>
   </div>
   <div data-role="content"> 
     <script type="text/javascript">$(document).ready(function(){if ($('#purchaseP').val()>0) doFullOnCalc();});</script>
@@ -41,7 +41,7 @@
       <table>
         <tbody>
           <tr>
-            <td class="col1">Total Amount:</td>
+            <td>Total Amount:</td>
             <td><strong>R</strong>&nbsp;
               <input name="purchaseP" id="purchaseP" value="" type="text" /></td>
           </tr>
@@ -62,10 +62,10 @@
           </tr>
         </tbody>
       </table>
-      <table class="calctable three">
+      <table>
         <tbody>
           <tr>
-            <td class="col1">If the sectional title purchase includes exclusive use, please select how many:
+            <td>If the sectional title purchase includes exclusive use, please select how many:
               <select name="exclu">
                 <option selected="selected">1</option>
                 <option>2</option>
@@ -81,13 +81,13 @@
           <tr>
             <td><input onclick="doFullOnCalc()" value="Calculate" class="button" type="button" /></td>
           </tr>
-              <tr>
-          <td><input value="Reset" onclick="clearAll()" type="reset" /></td>
-        </tr>
-  </tbody>
+          <tr>
+            <td><input value="Reset" onclick="clearAll()" type="reset" /></td>
+          </tr>
+        </tbody>
       </table>
       <br />
-      <table class="calctable four">
+      <table>
         <thead>
           <tr>
             <th colspan="2"> Transfer Fees</th>
@@ -122,8 +122,7 @@
             <td><label id="totalN2">R 0.00</label></td>
           </tr>
           <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td colspan="3">&nbsp;</td>
           </tr>
           <tr>
             <td>Postage and Petties:</td>
@@ -167,11 +166,11 @@
           </tr>
         </tbody>
       </table>
-      <h2>Bond Cost Calculator</h2>
-      <table class="calctable five">
+      <h2>Bond Costs</h2>
+      <table>
         <tbody>
           <tr>
-            <td class="col1">Fees</td>
+            <td>Fees</td>
             <td><label id="fees">R 0.00</label></td>
           </tr>
           <tr>
@@ -199,7 +198,7 @@
             <td><label id="ncaFee">R 0.00</label></td>
           </tr>
           <tr>
-            <td>Electronic Document Preperation Fee</td>
+            <td>Electronic Document Preparation Fee</td>
             <td><label id="docfee">R 0.00</label></td>
           </tr>
           <tr>
@@ -217,7 +216,7 @@
 </div>
 <div data-role="page" id="2page">
   <div data-role="header"> <a href="#page" data-role="button">Back</a>
-    <h1>Bond Repayment Calculator</h1>
+    <h1>Bond Repayments</h1>
   </div>
   <div data-role="content">
     <form name=calc>
@@ -236,13 +235,12 @@
         </tr>
       </table>
       <tr>
-       <td><a href='#' data-role='button' data-icon='arrow-u' data-iconpos='left'value='Calculate' onclick='showpay()' class='calc'>Calculate</a>
-       </td>
+        <td><input type=button value='Calculate' onclick='showpay()' class='calc'></td>
       </tr>
       <tr>
-        <td><input value="Reset" class="button" type="reset" /></td>
+        <td><input value="Reset" onclick="clearAll()" type="reset" /></td>
       </tr>
-      <table class=subheading cellspacing=0 cellpadding=3>
+      <table>
         <tr align=center>
           <td class=inner colspan=2><strong>Results:</strong></td>
         </tr>
@@ -250,7 +248,6 @@
           <td>Monthly Payment: R</td>
           <td><input name=pay type=text readonly ></td>
         </tr>
-      
       </table>
     </form>
   </div>
@@ -260,69 +257,64 @@
 </div>
 <div data-role="page" id="3page">
   <div data-role="header"> <a href="#page" data-role="button">Back</a>
-    <h1>Bond Affordability Calculator</h1>
+    <h1>Bond Affordability</h1>
   </div>
   <div data-role="content">
-  <form>
-    
-    <table>
-      <tbody>
-        <tr>
-          <td><b class="textg">Income</b></td>
-        </tr>
-        <tr>
-          <td>Gross Income (R):</td>
-        </tr>
-        <tr>
-          <td><input name="nettincome" id="nettincome" value="0" onkeyup="reCalc();" type="text" /></td>
-        </tr>
-        <tr>
-          <td>Expenses</td>
-        </tr>
-        <tr>
-          <td>Your total expenses (R):</td>
-        </tr>
-        <tr>
-          <td><input  name="expenses" id="expenses" value="0" onkeyup="reCalc();" type="text" /></td>
-        </tr>
-        <tr>
-          <td>Annual Interest Rate (%):</td>
-        </tr>
-        <tr>
-          <td><span class="rightal">
-            <select name="rate" id="rate" onchange="reCalc();">
-              <option value="8.5" selected="selected">8.5</option>
-              <option value="9.0">9.0</option>
-              <option value="9.5">9.5</option>
-              <option value="10.0">10.0</option>
-              <option value="10.5">10.5</option>
-              <option value="11.0">11.0</option>
-              <option value="11.5">11.5</option>
-              <option value="12.0">12.0</option>
-              <option value="12.5">12.5</option>
-              <option value="13.0">13.0</option>
-              <option value="13.5">13.5</option>
-              <option value="14.0">14.0</option>
-            </select>
-            </span></td>
-        </tr>
-      </tbody>
-    </table>
-    You qualify for: <span id="qualify">R 0.00</span> @ <span id="selectedrate">8.5</span>%<br />
-    <b>Repayment:</b><br />
-    <br />
-    <span class="textg">Over 15 years</span> = <span id="15yrs">R 0.00 pm</span><br />
-    <span class="textg">Over 20 years</span> = <span id="20yrs">R 0.00 pm</span><br />
-    <span class="textg">Over 25 years</span> = <span id="25yrs">R 0.00 pm</span><br />
-    <span class="textg">Over 30 years</span> = <span id="30yrs">R 0.00 pm</span><br />
-           <tr>
-      <td>
-
-      <input value="Reset" onclick="clearAll()" type="reset" />
-             </td>
-   </tr>
-  
-    
+    <form>
+      <table>
+        <tbody>
+          <tr>
+            <td><strong>Income</strong></td>
+          </tr>
+          <tr>
+            <td>Gross Income R:</td>
+          </tr>
+          <tr>
+            <td><input name="nettincome" id="nettincome" value="" onkeyup="reCalc();" type="text" /></td>
+          </tr>
+          <tr>
+            <td>Expenses</td>
+          </tr>
+          <tr>
+            <td>Your total expenses R:</td>
+          </tr>
+          <tr>
+            <td><input  name="expenses" id="expenses" value="" onkeyup="reCalc();" type="text" /></td>
+          </tr>
+          <tr>
+            <td>Annual Interest Rate %:</td>
+          </tr>
+          <tr>
+            <td><span class="rightal">
+              <select name="rate" id="rate" onchange="reCalc();">
+                <option value="8.5">8.5</option>
+                <option value="9.0" selected="selected">9.0</option>
+                <option value="9.5">9.5</option>
+                <option value="10.0">10.0</option>
+                <option value="10.5">10.5</option>
+                <option value="11.0">11.0</option>
+                <option value="11.5">11.5</option>
+                <option value="12.0">12.0</option>
+                <option value="12.5">12.5</option>
+                <option value="13.0">13.0</option>
+                <option value="13.5">13.5</option>
+                <option value="14.0">14.0</option>
+              </select>
+              </span></td>
+          </tr>
+        </tbody>
+      </table>
+      You qualify for: <span id="qualify">R 0.00</span> @ <span id="selectedrate">9.0</span>%<br />
+      <strong>Repayment:</strong><br />
+      <span class="textg">Over 15 years</span> = <span id="15yrs">R 0.00 pm</span><br />
+      <span class="textg">Over 20 years</span> = <span id="20yrs">R 0.00 pm</span><br />
+      <span class="textg">Over 25 years</span> = <span id="25yrs">R 0.00 pm</span><br />
+      <span class="textg">Over 30 years</span> = <span id="30yrs">R 0.00 pm</span><br />
+      <tr>
+        <td><input value="Reset" onclick="clearAll()" type="reset" /></td>
+      </tr>
+      
+      
     </form>
   </div>
   <div data-role="footer">
@@ -331,44 +323,37 @@
 </div>
 <div data-role="page" id="4page">
   <div data-role="header"> <a href="#page" data-role="button">Back</a>
-    <h1>Additional Payment Calculator</h1>
+    <h1>Additional Payments</h1>
   </div>
   <div data-role="content">
     <form name="extrapay">
       <table class=subheading cellspacing=0 cellpadding=3>
         <tr>
           <td>Loan Amount: R</td>
-          <td><input name=aa type=text size=15 onkeyup=checnum(this) ></td>
+          <td><input name=aa type=text onkeyup=checnum(this) ></td>
         </tr>
         <tr>
           <td>Interest Rate: %</td>
-          <td><input name=bb type=text size=15 onkeyup=checnum(this) ></td>
+          <td><input name=bb type=text onkeyup=checnum(this) ></td>
         </tr>
         <tr>
           <td>Term (Years)</td>
-          <td><input name=cc type=text size=15 onkeyup=checnum(this)></td>
+          <td><input name=cc type=text onkeyup=checnum(this)></td>
         </tr>
       </table>
-      <br />
+      <td>&nbsp;</td>
       <table>
         <tr>
           <td>Additional Monthly Payment:</td>
-          <td><input name="dd" size="15" type="text" /></td>
+          <td><input name="dd" type="text" /></td>
         </tr>
       </table>
-      
       <tr>
-      <td>
-      <input type=button name=ss value=Calculate onclick=loan() class=calc>
-       </td>
-   </tr>
-         <tr>
-      <td>
-
-      <input value="Reset" onclick="clearAll()" type="reset" />
-             </td>
-   </tr>
-     
+        <td><input type=button name=ss value=Calculate onclick=loan() class=calc></td>
+      </tr>
+      <tr>
+        <td><input value="Reset" onclick="clearAll()" type="reset" /></td>
+      </tr>
       <table>
         <tbody>
           <tr align="center">
@@ -406,6 +391,5 @@
     <h4>by Eezi Software</h4>
   </div>
 </div>
-
 </body>
 </html>
